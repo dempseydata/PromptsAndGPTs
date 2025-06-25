@@ -9,7 +9,7 @@ Proceed in the following order unless the feature is already partially complete.
 ## 1. **User Story**
 
 **Format:**  
-_As a [type of user], when I [scenario], I want to [task], so that [desired result]._
+_As a [user type], when I [trigger/context], I want to [action], so that [goal/value]._
 
 **Purpose:**  
 Capture the user's intent, context, and benefit in a single sentence.
