@@ -15,34 +15,38 @@ _As a [user type], when I [trigger/context], I want to [action], so that [goal/v
 Capture the user's intent, context, and benefit in a single sentence.
 
 ✅ Clarify if the task is vague, overly technical, or lacks a user type  
+✅ If appropriate, offer alternative phrasings  
 🔸 Ask: *What problem are they solving? What’s the larger value?*
 
 ---
 
 ## 2. **Release Type**
 
-Choose one or more:
-- **POC**: internal team-only, low-UX validation
-- **Alpha**: dev demo for select users, low scale
-- **Beta**: MVP for broader user feedback
-- **GA**: production-ready with polish and support
+Generally speaking, a feature will focus on one release type:
+- **POC**: An internal team-only demo or write up that focuses on the core capabilities required for later releases. The goal is to verify the feasibility of the feature
+- **Alpha**: A subset of capabilities on a system for interactive testing by the internal team, and (optionally) a small number of select users. An Alpha does not need to scale beyond the internal team size.
+- **Beta**: An almost fully functional version of the feature, accessible to users. Beta comes in 3 flavors: (1) "Usability Beta" - Invite only on a non-production system in order to perform usability testing (limited time access, moderated feedback session) prior to release, (2) "Closed Beta" - Invite only on the production system for a subset of users, followed up with feedback gathering sessions, (c) "Open Beta" - Accessible to all users to gather a broader set of feedback. With Beta, bugs and usability issues are expected, and is a good way to vet the 'final feature' prior to GA in order to fix any bugs etc.
+- **GA**: Full functionality released to all users with no constraints
 
 **Guidance:**  
-✅ Include rationale for stage  
+✅ Include rationale for stage chosen
 ✅ Multiple stages OK, especially for net-new features  
-🔸 Prompt if unclear: *Is this intended as a fast test or first public version?*
+✅ A Beta release will often be paired with GA release
+🔸 Prompt if unclear: *Is this intended as an Alpha or a Usability Beta?*
 
 ---
 
 ## 3. **Business Requirements**
 
-**What this feature must achieve and why.**
+**WHAT this feature must achieve and WHY.**
 
 ✅ Focus on outcomes and business logic  
 ✅ Avoid UI or implementation details  
 ✅ Prompt for what’s IN vs. OUT of scope for this release
+✅ The last part of the requirements must be the WHY of the feature. Who does the feature benefit, and what value or impact will this feature provide
 
 🔸 Ask: *What happens if we don’t ship this? What does success look like?*
+🔸 Ask: *How does this feature benefit the target users?*
 
 ---
 
@@ -55,7 +59,10 @@ List key technical, business, or behavioral assumptions. Include:
 - Feature gating conditions
 
 ✅ Identify cross-team or architecture links  
-🔸 Ask: *What must be true for this to work?*
+
+🔸 Ask: *What must be true for this feature to succeed?*
+🔸 Ask: *What must be true for work on this feature to start?*
+🔸 Ask: *What risks blocking this feature if proven false?*
 
 ---
 
@@ -67,7 +74,7 @@ Choose one or more:
 - Competitive UX Pattern Research  
 - Technology/Architecture Scan
 
-✅ Required for novel capabilities, new user types, or domain-specific UX  
+✅ Required for novel capabilities, new user types, or domain-specific UX
 🔸 Ask: *Is this something we’ve seen or done before?*
 
 ---
@@ -82,10 +89,15 @@ Select all that apply:
 - Interactive prototype
 
 **Guidance by release stage:**
-- **POC/Alpha** → wireframes or low-fi are often sufficient  
-- **Beta/GA** → needs mid-fi or better
+- **POC** → Should include UX design involvement to produce a low-fi wireframe as an output
+- **Alpha/Beta/GA** → Needs a mid-fi or better, depending on the extent of the expected changes. A Minor UX change only needs a mid-fi design, but larger changes will need a high-fi design, and more complex features would benefit from an interactive prototype
 
-🔸 Ask: *What’s the simplest design artifact needed to test this?*
+
+✅ UX designs are required before Alpha, Beta or GA releases
+✅ UX designs are required before implementation work can begin
+ 
+🔸 Ask: *What is the expected impact on the current UX?*
+🔸 Ask: *What is the simplest design artifact needed to test this?*
 
 ---
 
@@ -95,7 +107,8 @@ Split into:
 - **Data to Capture** (user/system actions, metadata)
 - **Metrics to Derive** (adoption, success rate, abandonment)
 
-✅ Include what’s logged now vs. what needs to be added  
+✅ Include what’s logged now vs. what needs to be added
+✅ Focus on what actions and supporting metadata need to be captured
 🔸 Ask: *What does success look like in data?*
 
 ---
@@ -107,7 +120,9 @@ Choose one:
 - System diagram update  
 - Tech Wiki update
 
-✅ Required if new tools, APIs, or agents are added  
+✅ Diagram update only required if new tools, APIs, or agents are added  
+✅ Tech wiki update required if process flow or data structures are changing
+
 🔸 Ask: *Would this affect dev onboarding or architecture understanding?*
 
 ---
