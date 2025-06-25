@@ -1,8 +1,10 @@
 # 🧩 Feature Template: LLMChat Feature Definition
 
-This template is used to structure product features in a clear, outcome-driven format that aligns engineering, UX, and strategic goals.
+This template structures **Epic/Feature-level product ideas** into a clear, outcome-driven format — ready for story breakdown by engineering and design.
 
-Proceed in the following order unless the feature is already partially complete.
+It is designed for **section-by-section collaboration between a PM and a GPT-based co-pilot**. The GPT acts as a thinking and writing partner — asking clarifying questions, suggesting better phrasing, and helping refine feature logic.
+
+This document is intended to be iterated, not completed in one shot.
 
 ---
 
@@ -12,27 +14,30 @@ Proceed in the following order unless the feature is already partially complete.
 _As a [user type], when I [trigger/context], I want to [action], so that [goal/value]._
 
 **Purpose:**  
-Capture the user's intent, context, and benefit in a single sentence.
+Capture the user’s need, the context, and the value in one sentence.
 
 ✅ Clarify if the task is vague, overly technical, or lacks a user type  
-✅ If appropriate, offer alternative phrasings  
+✅ If appropriate, offer alternative phrasing  
 🔸 Ask: *What problem are they solving? What’s the larger value?*
 
 ---
 
 ## 2. **Release Type**
 
-Generally speaking, a feature will focus on one release type:
-- **POC**: An internal team-only demo or write up that focuses on the core capabilities required for later releases. The goal is to verify the feasibility of the feature
-- **Alpha**: A subset of capabilities on a system for interactive testing by the internal team, and (optionally) a small number of select users. An Alpha does not need to scale beyond the internal team size.
-- **Beta**: An almost fully functional version of the feature, accessible to users. Beta comes in 3 flavors: (1) "Usability Beta" - Invite only on a non-production system in order to perform usability testing (limited time access, moderated feedback session) prior to release, (2) "Closed Beta" - Invite only on the production system for a subset of users, followed up with feedback gathering sessions, (c) "Open Beta" - Accessible to all users to gather a broader set of feedback. With Beta, bugs and usability issues are expected, and is a good way to vet the 'final feature' prior to GA in order to fix any bugs etc.
-- **GA**: Full functionality released to all users with no constraints
+What stage is this feature targeting?
+
+- **POC** – Internal-only proof of concept to validate feasibility  
+- **Alpha** – Limited-function release for internal feedback  
+- **Beta** – User-facing but not final; used to gather validation or early feedback  
+- **GA** – Full release to all users, production-ready
 
 **Guidance:**  
-✅ Include rationale for stage chosen
-✅ Multiple stages OK, especially for net-new features  
-✅ A Beta release will often be paired with GA release
-🔸 Prompt if unclear: *Is this intended as an Alpha or a Usability Beta?*
+✅ Choose based on readiness and feedback goals  
+✅ It's common to pair Beta with a GA plan  
+✅ Include a short rationale for the stage chosen  
+
+🔸 Ask: *Is this intended for early validation or a full rollout?*  
+🔸 Ask: *Will users interact with this at this stage?*
 
 ---
 
@@ -40,29 +45,32 @@ Generally speaking, a feature will focus on one release type:
 
 **WHAT this feature must achieve and WHY.**
 
-✅ Focus on outcomes and business logic  
-✅ Avoid UI or implementation details  
-✅ Prompt for what’s IN vs. OUT of scope for this release
-✅ The last part of the requirements must be the WHY of the feature. Who does the feature benefit, and what value or impact will this feature provide
+✅ Focus on outcomes, not UI or implementation  
+✅ Note IN vs. OUT of scope for this release  
+✅ End with the WHY: who benefits, and how
 
-🔸 Ask: *What happens if we don’t ship this? What does success look like?*
-🔸 Ask: *How does this feature benefit the target users?*
+💡 Optional:  
+> _Success = [measurable impact, workflow improvement, or outcome]_
+
+🔸 Ask: *What happens if we don’t ship this?*  
+🔸 Ask: *What does success look like in practice?*
 
 ---
 
 ## 4. **Assumptions & Dependencies**
 
-List key technical, business, or behavioral assumptions. Include:
+List any key assumptions or dependencies, such as:
 
-- External system dependencies  
-- Required design readiness  
-- Feature gating conditions
+- External systems or APIs  
+- Design readiness  
+- Technical gating conditions  
+- Known risks or upstream blockers
 
-✅ Identify cross-team or architecture links  
+✅ Call out cross-team, integration, or architectural dependencies
 
-🔸 Ask: *What must be true for this feature to succeed?*
-🔸 Ask: *What must be true for work on this feature to start?*
-🔸 Ask: *What risks blocking this feature if proven false?*
+🔸 Ask: *What must be true for this to succeed?*  
+🔸 Ask: *What needs to be ready before this can begin?*  
+🔸 Ask: *What could delay or block this if proven false?*
 
 ---
 
@@ -72,9 +80,9 @@ Choose one or more:
 - No research needed  
 - Discovery / Journey Mapping  
 - Competitive UX Pattern Research  
-- Technology/Architecture Scan
+- Technology / Architecture Scan
 
-✅ Required for novel capabilities, new user types, or domain-specific UX
+✅ Research is often needed for novel UX, unknown user segments, or new domains  
 🔸 Ask: *Is this something we’ve seen or done before?*
 
 ---
@@ -83,79 +91,106 @@ Choose one or more:
 
 Select all that apply:
 - No design needed  
-- Low-fi wireframe  
-- Mid-fi design  
-- High-fi design  
-- Interactive prototype
+- Low-fi wireframe (for exploration/ideation)  
+- Mid-fi design (required for user-facing work)  
+- High-fi design (for polish or clarity)  
+- Interactive prototype (for testing or handoff)
 
-**Guidance by release stage:**
-- **POC** → Should include UX design involvement to produce a low-fi wireframe as an output
-- **Alpha/Beta/GA** → Needs a mid-fi or better, depending on the extent of the expected changes. A Minor UX change only needs a mid-fi design, but larger changes will need a high-fi design, and more complex features would benefit from an interactive prototype
+**Guidance:**  
+Don’t assume design fidelity based on release stage.
 
+- **Low-fi** is for internal exploration and early collaboration  
+- **Mid- or High-fi** is expected for **any user-facing flows** (Alpha to GA)  
+- **Prototypes** help test usability or clarify flows
 
-✅ UX designs are required before Alpha, Beta or GA releases
-✅ UX designs are required before implementation work can begin
- 
-🔸 Ask: *What is the expected impact on the current UX?*
-🔸 Ask: *What is the simplest design artifact needed to test this?*
+✅ Create design artifacts before implementation  
+✅ Choose the minimal artifact that supports confident development
+
+🔸 Ask: *What design input is needed to make decisions or move forward?*  
+🔸 Ask: *Does this impact UX enough to require visual exploration?*
 
 ---
 
 ## 7. **Logging Plan & Measuring Impact**
 
 Split into:
-- **Data to Capture** (user/system actions, metadata)
-- **Metrics to Derive** (adoption, success rate, abandonment)
+- **Data to Capture** – Key user/system actions, metadata, flags  
+- **Metrics to Derive** – What signals indicate success or failure?
 
-✅ Include what’s logged now vs. what needs to be added
-✅ Focus on what actions and supporting metadata need to be captured
-🔸 Ask: *What does success look like in data?*
+**Guidance:**  
+Use these lenses to guide metric thinking:
+
+- **Usage** – Are people finding/triggering the feature? (e.g., # activations, # users)  
+- **Engagement** – Are they using it meaningfully? (e.g., task completion, depth)  
+- **Retention** – Do they return or repeat usage?  
+- **Abandonment** – Are users dropping off, bouncing, or ignoring the feature?
+
+✅ Specify what’s logged today vs. what must be added  
+✅ Focus on signals of behavior, not vanity metrics  
+✅ Prioritize 1–2 metrics that match the feature’s goals
+
+🔸 Ask: *What would tell us this feature is working?*  
+🔸 Ask: *What behavior would signal friction, confusion, or failure?*
 
 ---
 
 ## 8. **System Diagram Needs**
 
 Choose one:
-- Minor/no impact  
-- System diagram update  
-- Tech Wiki update
+- Minor or no impact  
+- System diagram update needed  
+- Tech Wiki update needed
 
-✅ Diagram update only required if new tools, APIs, or agents are added  
-✅ Tech wiki update required if process flow or data structures are changing
+✅ Update diagram if adding tools, APIs, or agents  
+✅ Update Tech Wiki if changing data flows or system behaviors
 
-🔸 Ask: *Would this affect dev onboarding or architecture understanding?*
+🔸 Ask: *Would this change how a new dev understands the system?*
 
 ---
 
 ## 9. **Acceptance Criteria**
 
-Split into 4 lists:
+Break into 4 lists:
 - **User Facing** — _As a user, I can…_  
-- **Back End** — _The product should…_  
-- **Logging** — _The metadata must…_  
+- **Back End** — _The system should…_  
+- **Logging** — _The product must capture…_  
 - **Regression** — _The product should still…_
 
-✅ Should be testable, clear, and tied to requirements  
-🔸 Ask: *What would QA or PM use to verify this?*
+✅ Should be clear, testable, and aligned to the business need  
+✅ GPT can offer phrasing suggestions if PM input is unclear
+
+🔸 Ask: *Would you like help turning that into a testable statement?*  
+🔸 Ask: *What would QA or PM use to validate this?*
 
 ---
 
-## 10. **Open Questions / Unresolved Items**
+## 10. **Iteration Parking Lot (Unresolved Items)**
 
-Optional section.
-
-Use this to capture:
+Use this section to note:
 - Decisions still pending  
-- External clarifications needed  
-- Items deferred to a follow-on release
+- Risky or unknown elements  
+- Items deferred to a later release
 
-✅ Often useful for Alpha/Beta handoffs  
-🔸 Ask: *What’s still fuzzy, risky, or open-ended?*
+✅ Great for Alpha/Beta stages where discovery continues  
+🔸 Ask: *What’s still fuzzy or in flux?*  
+🔸 Ask: *What do we expect to refine later?*
 
 ---
 
-**Usage Tips:**
-- Each section can be revised iteratively  
-- When vague inputs are given, treat them as starting points  
-- Always validate feature logic against product stage, user need, and technical reality
+### ✅ Usage Tips
 
+- This template is meant for **collaboration with a GPT co-pilot**. The GPT will prompt, clarify, and help refine each section — it’s not a one-shot generator.  
+- You don’t have to finish everything in one pass. Write what’s clear, then iterate.  
+- Always align with actual user value, not perceived completeness.
+
+---
+
+## 📘 Appendix: Beta Types (Reference Only)
+
+If selecting a **Beta** release, you may clarify the intent using one of these categories:
+
+- **Usability Beta** – Invite-only. Performed in test environments or structured sessions. Focus is on UX and workflow validation.  
+- **Closed Beta** – Invite-only on production. Used for early exposure and feedback from trusted users.  
+- **Open Beta** – Available to all users but clearly marked as pre-release. Used to gather large-scale feedback or monitor at-scale issues.
+
+📝 Choose based on **feedback goals and risk**, not by default. These may evolve over time.
