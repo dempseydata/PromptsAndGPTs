@@ -1,107 +1,178 @@
-# ✍️ Writing Style Guide for AI Feature Specifications
+# 📚 LLMChat Feature Writing Guide
 
-This file provides **examples and principles** to help ensure feature specs are:
-- Problem-first
-- Testable
-- Structured by outcome
-- Appropriate to the feature’s phase (e.g., Alpha vs. GA)
-
-This guide is used by the GPT to validate and improve feature writing.
+*Amazon-Style, Enhanced with AWS Narrative Principles*
 
 ---
 
-## ✅ General Style Principles
+## 1. **Problem-First, Outcome-Driven**
 
-- Use **active voice** and assign clear ownership
-- Frame around **user problems**, not UI actions
-- Focus on **value and testability**
-- Prefer **plain, direct language** (avoid fluffy or abstract terms)
-- Align scope and precision with the **release stage** (e.g., Alpha = narrower)
+* **Start with the problem:** Clearly state the user/business pain or unmet need before describing the solution.
 
----
+  * *Weak:* “We should add an export button.”
+  * *Strong:* “Researchers cannot easily share session outputs with colleagues, causing rework and frustration. An export button will allow seamless sharing, reducing manual copy-paste effort.”
+* **Define the successful outcome:**
 
-## 💬 Good vs. Weak Phrasing
-
-| ❌ Weak / Vague | ✅ Improved & Testable |
-|----------------|------------------------|
-| “Add a button to export results” | “As a user, I can export chart results to CSV so I can use them in external tools.” |
-| “Track usage” | “Log each use of the DALL·E image generation tool, including timestamp, user type, and input prompt.” |
-| “Improve the UX of the chart tool” | “Add tooltips to chart elements so users can see metric definitions on hover.” |
-| “Support research workflows” | “Enable saving and resuming document-based Q&A sessions, allowing researchers to continue across sessions.” |
-| “Let the user customize” | “Allow the user to choose between light and dark mode for document viewer panels.” |
+  * *Strong:* “When this feature launches, 90% of users will successfully export a transcript on their first attempt.”
 
 ---
 
-## 🧩 Section-Specific Patterns
+## 2. **Be Unambiguous and Testable**
 
-### **User Story**
-> _As a [user type], when I [trigger/context], I want to [action], so that [goal/value]._
+* **Use measurable criteria and binary language.**
 
-✅ Tie directly to a need or workflow  
-✅ Avoid feature-first framing
+  * *Weak:* “System should be fast.”
+  * *Strong:* “System SHALL return search results within 2 seconds for 99% of queries.”
+* **All acceptance criteria MUST be verifiable.**
 
----
-
-### **Business Requirements**
-❌ Don’t say:  
-- “We want to use feature X”  
-- “Implement dropdowns for filters”  
-
-✅ Do say:  
-- “The goal is to help users segment search results by metadata (e.g., source, date) so they can narrow focus on relevant papers.”
+  * Use Given/When/Then or checklist formats.
 
 ---
 
-### **Logging & Metrics**
-- **Data to Capture**: _“Log tool use with user type, prompt, and output metadata.”_  
-- **Metric to Derive**: _“% of users who use the export feature more than once.”_
+## 3. **Active Voice, Clear Ownership**
 
-✅ Log the event  
-✅ Metric derives behavior insight  
-✅ Separate “loggable events” from “metrics derived later”
+* Assign ownership wherever possible.
 
----
-
-### **Acceptance Criteria (by type)**
-
-#### User Facing
-> _As a user, I can edit the image caption after generation._
-
-#### Back End
-> _The system should validate input before sending to DALL·E._
-
-#### Logging
-> _The metadata must capture the number of generation attempts per session._
-
-#### Regression
-> _The chart tool should still render previous chart types without error._
-
-✅ Keep each line testable  
-✅ Use consistent phrasing
+  * *Weak:* “Logs are reviewed weekly.”
+  * *Strong:* “The Analytics team reviews system logs every Friday and files issues in Jira.”
+* Avoid “should,” “could,” “would like,” “might,” or passive voice.
 
 ---
 
-## 🛑 Avoid These Pitfalls
+## 4. **Conciseness and Structure**
 
-- "The feature should work well" → Too vague
-- "Let the model decide how to handle this" → Offloads too much control
-- “Improve performance” → No testable definition
-- “Enhance experience” → Say what’s better and how we’ll know
+* **Bullets > prose:**
 
----
+  * Use bulleted or numbered lists for requirements, assumptions, and dependencies.
+* **No filler:**
 
-## 🧠 Use Cases Where Clarity Matters Most
+  * Remove unnecessary adjectives/adverbs (“simply,” “very,” “just,” etc.).
+* **Consistent section formatting:**
 
-- **New agentic tools** (e.g., researcher, charting): clarify inputs, expected actions, edge cases
-- **Complex flows**: clearly describe what each step must do
-- **POC or Alpha features**: under-specify **just enough** to validate, but not to build at scale
+  * Each section follows the template structure (User Story, Requirements, etc.).
 
 ---
 
-## 📌 How the GPT Should Use This
+## 5. **Data and Evidence-Driven**
 
-- Default to phrasing patterns from this guide when rewriting
-- Compare user input to “good vs. weak” examples
-- Suggest rewrites and explain *why*
-- Use these to validate clarity, phase-fit, and testability
+* Reference facts, numbers, user feedback, or benchmarks wherever possible.
 
+  * *Strong:* “In user interviews, 4/5 participants cited missing export as a top pain point.”
+
+---
+
+## 6. **Acceptance Criteria Format**
+
+* Use Given/When/Then:
+
+  * *Given a logged-in user,
+  * *When they click 'Export',
+  * *Then the system generates a .txt file within 2 seconds.
+
+* Include negative/edge cases, backend requirements, and logging coverage.
+
+---
+
+## 7. **Security, Compliance, and Accessibility**
+
+* Explicitly call out:
+
+  * Who can access what data
+  * What data is logged, stored, or transmitted
+  * Which standards or regulatory requirements apply
+
+---
+
+## 8. **Parking Lot Items**
+
+* Clearly label non-blocking, speculative, or deferred ideas as “Parking Lot.”
+
+  * *“Potential extension: allow export to PDF. Out of scope for MVP.”*
+
+---
+
+## 9. **Checklist for Review**
+
+* [ ] Every requirement is testable
+* [ ] Problem and outcome are clear
+* [ ] No passive or ambiguous language
+* [ ] All numbers/facts are cited or sourced
+* [ ] Acceptance criteria covers positive and negative flows
+* [ ] Security, compliance, accessibility are addressed
+
+---
+
+## 10. **Words and Phrases to Avoid (“Weasel Words”)**
+
+These words create ambiguity, reduce accountability, or signal uncertainty. Replace them with **clear, testable, and direct language**.
+
+**Common Weasel Words:**
+
+* should
+* could
+* would like to
+* might
+* may (unless regulatory, e.g., “may not store PII”)
+* try to / attempt to
+* probably / possibly
+* ideally / preferably / as appropriate
+* best effort / where feasible
+* soon / ASAP / quickly / timely
+* easily / simply / just / very / really
+* generally / typically / often
+* in some cases / where necessary / as needed
+
+**Example rewrites:**
+
+| Weasel Version                        | Amazon-Style Rewrite                              |
+| ------------------------------------- | ------------------------------------------------- |
+| “System should load results quickly.” | “System SHALL return results in under 2 seconds.” |
+| “Logs may be reviewed regularly.”     | “The Analytics team reviews logs weekly.”         |
+| “Ideally, users are notified.”        | “System SHALL notify users within 1 minute of X.” |
+| “Feature is available ASAP.”          | “Feature is available to all users by July 15.”   |
+
+> **Tip:** If you find yourself writing with uncertainty or open-ended phrases, ask:
+>
+> * Who owns the action?
+> * How is success/failure measured?
+> * When is the action done or the requirement satisfied?
+
+---
+
+## 11. **Sentence Structure & Rhythm**
+
+*Inspired by AWS Narrative Principles*
+
+* **Vary your sentence length** to create engagement and avoid monotony.
+
+  * Short sentences emphasize.
+  * Longer sentences add nuance, detail, or build energy.
+* **Mix structure:** Use both simple and complex sentences for rhythm.
+* **Read aloud:** Ensure your writing “sounds right”—no long monotonous blocks.
+* Avoid “wall of text” prose; break up content with lists and spacing.
+
+---
+
+## 12. **Headlines and Calls to Action (CTAs)**
+
+*Inspired by AWS Template*
+
+* **Start with a headline** or summary that instantly communicates “why this matters.”
+* **Craft direct, actionable CTAs:**
+
+  * *Weak:* “Click here.”
+  * *Strong:* “Start exploring your new dashboard.”
+* Each update, requirement, or announcement should answer: “So what? What do I do next?”
+
+---
+
+## 13. **Examples: Strong vs. Weak Writing**
+
+| Weak Example                         | Amazon-Style Rewrite                                                                             |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| “Should improve system reliability.” | “System SHALL maintain 99.9% uptime, measured monthly.”                                          |
+| “Add dark mode.”                     | “Add dark mode so users working at night reduce eye strain; 60% adoption target within 1 month.” |
+| “Logs are accessible.”               | “Only SRE team members SHALL access audit logs; access is logged and reviewed quarterly.”        |
+
+---
+
+**Use this guide as the standard for all LLMChat feature specs, RFCs, and product communications. For questions, reach out to the product leadership team.**
