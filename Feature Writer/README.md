@@ -39,38 +39,41 @@ The GPT acts as a **strategic product co-pilot**, working alongside a senior PM 
 🧩 Feature Template Overview
 
 The feature_template.md provides a repeatable structure for documenting features, aligned to agile team needs:
-	1.	User Story – Captures user context and intent
-	2.	Release Type – POC, Alpha, Beta, or GA (brief guidance included)
-	3.	Business Requirements – What it must achieve and why
-	4.	Assumptions & Dependencies – Design, technical, external conditions
-	5.	Foundational Research – Discovery, tech scan, or UX pattern needs
-	6.	UX Design Needs – Lo-fi for ideation; Mid/Hi-fi required for user-facing flows
-	7.	Logging & Metrics – Tracks usage, engagement, retention, abandonment
-	8.	System Diagram Needs – Whether updates to architecture docs are needed
-	9.	Acceptance Criteria – Structured into four categories
-	10.	Iteration Parking Lot – Captures unknowns or follow-ups
-	11.	Beta Types Appendix – Optional guidance for Closed, Usability, or Open Beta
+1. User Story
+2. Why This Epic
+3. Key Terms (optional, update throughout)
+4. Release Type
+5. Business Requirements
+6. Assumptions
+7. Dependencies
+8. Foundational Research
+9. UX Design Needs
+10. Logging & Analytics
+11. Acceptance Criteria
+12. Open Questions & Parking Lot
+13. Out of Scope (optional
+
 
 ⸻
 
 ✍️ Writing Standards
 
 Use the examples in writing_examples_ai_features.md to:
-	•	Write measurable, testable acceptance criteria
-	•	Use active voice with clear ownership
-	•	Avoid vague, passive, or overly technical phrasing
-	•	Align expectations to user value and product phase
+- Write measurable, testable acceptance criteri
+- Use active voice with clear ownership
+- Avoid vague, passive, or overly technical phrasing
+- Align expectations to user value and product phase
 
 ⸻
 
 ✅ How to Use This GPT
-	1.	Load the GPT into ChatGPT’s Custom GPT environment
-	2.	Ensure all .md knowledge files are uploaded as reference context
-  3.  Update the llmchat_product_overview.md with an overview of your product and its capabilities
-	3.	Begin a conversation with your feature idea
-	4.	The GPT will guide you through each section of the template
-	5.	Revise collaboratively and confirm before continuing
-	6.	Use the output for JIRA Feature-level specs, ready for story breakdown
+1. Load the GPT into ChatGPT’s Custom GPT environment
+2. Ensure all .md knowledge files are uploaded as reference context
+3. Update the llmchat_product_overview.md with an overview of your product and its capabilities
+4. Begin a conversation with your feature idea
+5. The GPT will guide you through each section of the template
+6. Revise collaboratively and confirm before continuing
+7. Use the output for JIRA Feature-level specs, ready for story breakdown
 
 This GPT is designed to co-author, coach, and validate — not just write.
 
